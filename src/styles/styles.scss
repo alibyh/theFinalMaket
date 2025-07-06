@@ -37,11 +37,15 @@ body {
   height: 88px;
   background: #ffffff;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: -webkit-fill-available;
   border-bottom: solid 1px #D9FFF5;
-
+  padding: 0 16px;
+}
+.leftSide, .rightSide {
+  display: flex;
+  gap: 16px;
 }
 
 .container__header_768,

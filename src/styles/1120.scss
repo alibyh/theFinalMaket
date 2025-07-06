@@ -96,6 +96,7 @@
 
     .mainImg {
         border-radius: 5px;
+        padding-right: 24px;
     }
 
     .lable1120 {
@@ -197,13 +198,11 @@
 
     /* Table styles for desktop */
     table {
-        width: 95%;
         left: 32px;
     }
 
     tbody tr:not(:first-child):not(:last-child)::after {
         left: 2%;
-        width: 95%;
     }
 
     table td:last-child {

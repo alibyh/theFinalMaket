@@ -85,6 +85,7 @@ $lineColor: #D9FFF5;
         display: inline !important;
     }
     .mainImg{
+        padding-right: 24px;
         border-radius: 6px;
     }
     /* ********************************************menu************************************************ *** */
@@ -130,7 +131,9 @@ $lineColor: #D9FFF5;
         text-transform: uppercase;
         margin: 0;
     }
-
+    .f_body{
+        padding-right: 24px;
+    }
 
     .f_body--images {
         display: grid;
@@ -206,7 +209,6 @@ $lineColor: #D9FFF5;
         bottom: 0;
         margin-bottom: 20px;
         border-top: solid 1px #D9FFF5;
-        width: 100%;
     }
 
 
@@ -221,6 +223,10 @@ $lineColor: #D9FFF5;
         display: flex;
         flex-direction: column;
         gap: 24px;
+        padding-right: 26px;
+    }
+    .first-swiper-slide{
+        background-color: white;
     }
 
     #myFeedbackDialog,
@@ -247,10 +253,10 @@ $lineColor: #D9FFF5;
 
     tbody tr:not(:last-child)::after {
         left: 2.5%;
-        width: 95%;
     }
 
     table td:last-child {
         padding-right: 16px;
+        padding-top: 0;
     }
 }
