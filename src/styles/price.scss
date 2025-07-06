@@ -6,23 +6,58 @@
     gap: 32px;
 }
 
-.price-section__desktop {
-    display: none;
+/* Price Header - Common for both mobile and desktop */
+.price-header {
+    height: 56px;
+    border-top: 1px solid #D9FFF5;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: linear-gradient(90deg, #F8F8F8 0%, #FFFFFF 98.61%);
+    width: 100%;
 }
 
-/* Services Slider */
+.price-header__title {
+    font-family: 'TT Lakes';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    color: #7E7E82;
+    position: relative;
+    margin: 0;
+    width: 60%;
+    left: 24px;
+}
+
+/* Combined content container */
+.price-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Price mini title - Common for both views */
+.price-mini-title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+/* Mobile View - Services Slider */
 .services-slider {
-    width: -webkit-fill-available;  /* Changed from 96% to 100% */
+    width: -webkit-fill-available;
     height: 100%;
     position: relative;
-    left: 0;      /* Changed from 8px to 0 */
+    left: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 16px;
-    overflow: hidden;  /* Added to control overflow */
-    padding: 0 16px;   /* Added padding instead of left positioning */
+    overflow: hidden;
+    padding: 0 16px;
 }
 
 .services-slider::after {
@@ -65,10 +100,9 @@
 }
 
 .services-slider__wrapper {
-    width: auto;  /* Changed from fixed 400px */
+    width: auto;
     position: relative;
     left: 0px;
-    /* Remove gap here as Swiper will handle it */
 }
 
 /* Override Swiper's default spacing */
@@ -84,52 +118,93 @@
     justify-content: center;
     align-items: center;
     border-radius: 7px;
-    width: 256px !important;  /* Force exact width with !important */
-    min-width: 256px !important;  /* Added min-width to ensure consistency */
+    width: 256px !important;
+    min-width: 256px !important;
     image-rendering: auto;
     shape-rendering: geometricPrecision;
-    margin-right: 0 !important; /* Override any margin Swiper might add */
+    margin-right: 0 !important;
 }
 
-/* Price Header */
-.price-section__mobile {
-    display: flex;
-    gap: 16px;
-    flex-direction: column;
+/* Desktop View - Table */
+.price-table {
+    display: none;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    border-collapse: collapse;
+    position: relative;
+    left: 24px;
 }
 
-.price-header {
-    height: 56px;
-    border-top: 1px solid #D9FFF5;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    background: linear-gradient(90deg, #F8F8F8 0%, #FFFFFF 98.61%);
+.price-table__row:first-child {
+    background-color: #F8F8F8;
+    border-bottom: none;
 }
 
-.price-header__title {
-    font-family: 'TT Lakes';
+th,
+td {
+    padding: 16px;
+    white-space: nowrap;
+    font-family: 'TT Lakes', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.2px;
+    color: #1B1C21;
+}
+
+th {
+    text-align: left;
+    font-family: 'TT Lakes', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.2px;
-    text-transform: uppercase;
     color: #7E7E82;
+}
+
+tr {
+    height: 64px;
+    display: table-row;
+    width: 100%;
+}
+
+tbody tr {
+    border-bottom: none;
     position: relative;
-    margin: 0;
-    width: 60%;
-    left: 24px;
 }
 
-.price-mini-title {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
+tbody tr:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 1%;
+    width: 90%;
+    height: 1px;
+    background-color: #EAEAEA;
 }
 
-/* Service Card */
+table td:last-child {
+    width: 1%;
+    white-space: nowrap;
+    padding-right: 24px;
+}
+
+table .service-card__order-btn {
+    white-space: nowrap;
+    width: auto;
+    min-width: 115px;
+    padding: 0;
+    justify-content: center;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* Service Card - Common for both views */
 .service-card {
-    width: 256px;  /* Ensure this matches the slide width */
+    width: 256px;
     height: 200px;
     background-color: white;
     border-radius: 6px;
@@ -137,7 +212,7 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 12px;
-    box-sizing: border-box;  /* Added to ensure padding is included in width */
+    box-sizing: border-box;
 }
 
 .service-card__service,
@@ -201,8 +276,8 @@
     position: relative;
     top: 7px;
     min-width: 115px;
-        padding: 0;
-        justify-content: center;
+    padding: 0;
+    justify-content: center;
 }
 
 .service-card__order-text {
@@ -222,13 +297,23 @@
     align-items: center;
     justify-content: center;
 }
+
 .service-card__order-icon img {
     width: 7px;
     height: 9.64px;
 }
 
-/* Desktop Styles */
+/* Responsive Styles */
 @media (min-width: 768px) {
+    /* Hide mobile view, show desktop view */
+    .services-slider {
+        display: none;
+    }
+    
+    .price-table {
+        display: table;
+    }
+    
     .price-section__mobile {
         display: none;
     }
@@ -250,96 +335,12 @@
         left: 24px;
     }
 
-    table {
-        height: 100%;
-        background-color: #FFFFFF;
-        border-radius: 6px;
-        border-collapse: collapse;
-        position: relative;
-        left: 24px;
-    }
-
-    .price-table__row:first-child {
-        background-color: #F8F8F8;
-        border-bottom: none;
-    }
-
-    th,
-    td {
-        padding: 16px;
-        white-space: nowrap;
-        font-family: 'TT Lakes', sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
-        letter-spacing: -0.2px;
-        color: #1B1C21;
-    }
-
-    th {
-        text-align: left;
-        font-family: 'TT Lakes', sans-serif;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: -0.2px;
-        color: #7E7E82;
-    }
-
-    tr {
-        height: 64px;
-        display: table-row;
-        width: 100%;
-    }
-
-    tbody tr {
-        border-bottom: none;
-        /* Remove the default border */
-        position: relative;
-        /* For the pseudo-element positioning */
-    }
-
-    tbody tr:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 1%;
-        /* Start at 5% from left */
-        width: 90%;
-        /* Make border 90% width */
-        height: 1px;
-        background-color: #EAEAEA;
-    }
-
-    table td:last-child {
-        width: 1%;
-        /* Minimal width */
-        white-space: nowrap;
-        /* Prevent wrapping */
-        padding-right: 24px;
-        /* Add some padding on the right */
-    }
-
-    table .service-card__order-btn {
-        white-space: nowrap;
-        width: auto;
-        /* Let it size to content */
-        min-width: 115px;
-        padding: 0;
-        justify-content: center;
-        /* Minimum width */
-    }
-
-    tbody tr:last-child {
-        border-bottom: none;
-    }
-
     .price-footer__disclaimer {
         width: 63%;
     }
 }
 
-/* Price Footer */
+/* Price Footer - Common for both views */
 .price-footer {
     position: relative;
     bottom: 0;

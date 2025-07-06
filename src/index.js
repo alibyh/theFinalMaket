@@ -469,4 +469,61 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => {
             console.error('Error loading footer content:', error);
         });
+
+    // Function to handle responsive price section
+    function handlePriceSection() {
+        const mediaQuery = window.matchMedia('(min-width: 768px)');
+        
+        function togglePriceView() {
+            const servicesSlider = document.querySelector('.services-slider');
+            const priceTable = document.querySelector('.price-table');
+            
+            if (servicesSlider && priceTable) {
+                if (mediaQuery.matches) {
+                    // Desktop view
+                    servicesSlider.style.display = 'none';
+                    priceTable.style.display = 'table';
+                } else {
+                    // Mobile view
+                    servicesSlider.style.display = 'flex';
+                    priceTable.style.display = 'none';
+                    
+                    // Reinitialize Swiper for mobile
+                    initializeServiceSlider();
+                }
+            }
+        }
+        
+        // Initialize on load
+        togglePriceView();
+        
+        // Listen for screen size changes
+        mediaQuery.addEventListener('change', togglePriceView);
+    }
+    
+    // Function to initialize service slider
+    function initializeServiceSlider() {
+        const servicesSliders = document.querySelectorAll('.services-slider');
+        if (servicesSliders.length > 0 && window.innerWidth < 768) {
+            servicesSliders.forEach(element => {
+                // Check if Swiper is already initialized
+                if (element.swiper) {
+                    element.swiper.update();
+                } else {
+                    new Swiper(element, {
+                        direction: 'horizontal',
+                        slidesPerView: 'auto',
+                        spaceBetween: 16,
+                        pagination: {
+                            el: '.services-slider__pagination',
+                            clickable: true,
+                        },
+                    });
+                }
+            });
+        }
+    }
+
+    // Call the function to handle responsive price section
+    handlePriceSection();
 });

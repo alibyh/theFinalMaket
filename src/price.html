@@ -1,9 +1,11 @@
 <div class="price-section">
-    <div class="price-section__mobile">
-        <div class="price-header">
-            <h1 class="price-header__title">Цены на услуги</h1>
-        </div>
-        <!-- Swiper -->
+    <div class="price-header">
+        <h1 class="price-header__title">Цены на услуги</h1>
+    </div>
+    
+    <!-- Combined content container -->
+    <div class="price-content">
+        <!-- Mobile view (Swiper) -->
         <div class="services-slider swiper">
             <div class="services-slider__wrapper swiper-wrapper">
                 <div class="services-slider__slide swiper-slide">
@@ -132,10 +134,9 @@
 
             <div class="services-slider__pagination swiper-pagination"></div>
         </div>
-    </div>
-    <div class="price-section__desktop">
         
-        <table>
+        <!-- Desktop view (Table) -->
+        <table class="price-table">
             <tr class="price-table__row">
                 <th>Ремонтные услуги</th>
                 <th>Цена</th>
@@ -209,6 +210,7 @@
             </tr>
         </table>
     </div>
+    
     <div class="price-footer">
         <div class="price-footer__disclaimer">
             Все цены указаны с учетом НДС. Стоимость ремонта указана на единичную услугу.
@@ -225,30 +227,40 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var swiper = new Swiper(".services-slider", {
-            slidesPerView: 'auto',
-            spaceBetween: 16,  // This controls the gap between slides
-            centeredSlides: false,
-            pagination: {
-                el: ".services-slider__pagination",
-                clickable: true,
-            },
-            slideToClickedSlide: true,
-            watchSlidesProgress: true,
-            on: {
-                init: function() {
-                    // Force exact width for slides and remove any margin
-                    const slides = document.querySelectorAll('.services-slider__slide');
-                    slides.forEach(slide => {
-                        slide.style.width = '260px';
-                        slide.style.marginRight = '0'; // Override Swiper's margin
-                    });
-                    
-                    // Set the spaceBetween programmatically
-                    this.params.spaceBetween = 16;
-                    this.update();
-                }
+        // Only initialize Swiper on mobile screens
+        function initSwiper() {
+            if (window.innerWidth < 768) {
+                var swiper = new Swiper(".services-slider", {
+                    slidesPerView: 'auto',
+                    spaceBetween: 16,
+                    centeredSlides: false,
+                    pagination: {
+                        el: ".services-slider__pagination",
+                        clickable: true,
+                    },
+                    slideToClickedSlide: true,
+                    watchSlidesProgress: true,
+                    on: {
+                        init: function() {
+                            const slides = document.querySelectorAll('.services-slider__slide');
+                            slides.forEach(slide => {
+                                slide.style.width = '260px';
+                                slide.style.marginRight = '0';
+                            });
+                            this.params.spaceBetween = 16;
+                            this.update();
+                        }
+                    }
+                });
             }
+        }
+        
+        // Initialize on page load
+        initSwiper();
+        
+        // Re-initialize on window resize
+        window.addEventListener('resize', function() {
+            initSwiper();
         });
     });
 </script>
