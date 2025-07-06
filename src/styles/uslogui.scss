@@ -1,0 +1,257 @@
+@import 'fonts.css';
+
+.contentSec {
+    width: 100%;
+}
+
+.content320 {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 26px;
+    background-color: #F8F8F8;
+    width: 100%;
+    position: relative;
+}
+
+/* Add these styles to ensure slides are properly styled */
+.content320 .swiper-slide {
+    min-height: 72px !important; /* Allow slides to size based on content */
+}
+
+.swiper-slide2 {
+    text-align: start;
+    font-size: 18px;
+    background: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8%;
+    image-rendering: auto;
+    shape-rendering: geometricPrecision;
+    width: auto !important; /* Allow slides to size based on content */
+    height: auto !important;
+}
+
+.swiper-slide2 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.content320 .swiper {
+    overflow: visible !important; /* Allow pagination to be visible outside swiper container */
+}
+
+.second_f_header320 {
+    height: 56px;
+    border-top: 1px solid #D9FFF5;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: linear-gradient(90deg, #F8F8F8 0%, #FFFFFF 98.61%);
+}
+
+#second_myH1 {
+    color: #7E7E82;
+    font-family: 'TT Lakes', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    left: 24px;
+}
+
+.secondMainContentItems .myImg,
+.secondMainContentItems--1128 .myImg {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    position: relative;
+    left: 184px;
+    bottom: -8px;
+    cursor: pointer;
+    color: #000000;
+    border: solid 2px #FF3E79;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.secondMainContentItems .myImg:hover {
+    color: black;
+    border: solid 2px #000000;
+
+}
+
+.myImg:hover {
+    color: black;
+    border: solid 2px #000000;
+
+}
+
+.arrow {
+    position: relative;
+    left: 2%;
+}
+
+.secondMainContentItems label:not(.arrow){
+    position: relative;
+    left: 16px;
+
+    font-family: 'TT Lakes', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+
+}
+
+.secondMainContentItems {
+    width: 239px;
+    height: 160px;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.secondMainContentItems label {
+    font-family: 'TT Lakes', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+}
+
+.myImg {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #FF3E79;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    color: #FF3E79;
+}
+
+.secondbigContent {
+    display: none;
+}
+
+/* Keep existing swiper classes */
+
+@media (min-width: 768px) {
+    .content320 {
+        display: none;
+    }
+    .secondMainContentItems{
+        width: 222.4px;
+    }
+
+    .secondbigContent {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .secondMainContentItems1 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 222px);
+        gap: 16px 26px;
+    }
+
+    .swiper-wrapper2 {
+        position: relative;
+        left: 24px;
+        height: 172px;
+        overflow: hidden;
+        overflow-x: hidden;
+    }
+    .secondMainContentItems .myImg{
+        left: 168px;
+    }
+
+}
+
+@media (min-width: 1120px) {
+    .secondMainContentItems {
+        width: 238.4px;
+    }
+
+    .secondMainContentItems1 {
+        grid-template-columns: repeat(auto-fit, 238.4px);
+        gap: 16px 34px;
+    }
+    .secondMainContentItems .myImg{
+        left: 184px;
+    }
+}
+
+/* Make sure pagination is visible and properly styled */
+.content320 .swiper-pagination {
+    position: relative !important;
+    left: 3% !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+    gap: 12px;
+}
+
+.content320 .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    display: inline-block !important;
+    border-radius: 50% !important;
+    background: #DDDDDD !important;
+    opacity: 1 !important;
+}
+
+.content320 .swiper-pagination-bullet-active {
+    background: #B5B6BC !important;
+    opacity: 1 !important;
+}
+
+/* Pagination styles for uslogui swiper */
+.usloguiContent .content320 {
+  position: relative;
+}
+
+.usloguiContent .content320 .swiper {
+  overflow: visible !important; /* Allow pagination to be visible outside swiper container */
+}
+
+.usloguiContent .content320 .swiper-pagination {
+  position: relative !important;
+  left: 3% !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+}
+
+.usloguiContent .content320 .swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  display: inline-block !important;
+  border-radius: 50% !important;
+  background: #DDDDDD !important;
+  opacity: 1 !important;
+}
+
+.usloguiContent .content320 .swiper-pagination-bullet-active {
+  background: #B5B6BC !important;
+  opacity: 1 !important;
+}

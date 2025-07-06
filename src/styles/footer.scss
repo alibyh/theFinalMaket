@@ -1,0 +1,55 @@
+Footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+  color: #7E7E82;
+  position: relative;
+  bottom: 0;
+  border-top: solid 1px #D9FFF5;
+  width: 100%;
+  padding-top: 16px;
+
+}
+
+Footer label {
+  text-align: center;
+  font-family: "TT Lakes";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+
+Footer :last-child {
+  width: 260px;
+}
+
+.myfooterLabel {
+  color: #7E7E82;
+  text-align: center;
+  justify-items: start;
+}
+
+.myfooterLabel:last-child {
+  text-align: center;
+  width: 280px;
+}
+
+@media (min-width: 1120px) {
+  .myfooterLabel:last-child {
+    text-align: center;
+    min-width: 330px;
+  }
+  
+}
+@media (min-width: 760px) {
+  .myfooterLabel:last-child {
+    text-align: end;
+    width: 213px;
+  }
+  .myfooterLabel {
+    text-align: start;
+  };
+}

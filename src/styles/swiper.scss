@@ -1,0 +1,191 @@
+.swiper {
+    width: 90%;
+    height: 100%;
+    position: relative;
+    left: 16px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    padding: 0;
+}
+
+.swiper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -11%;
+    width: 45px;
+    height: 90%;
+    pointer-events: none;
+    background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+    z-index: 10;
+}
+
+/* Fix pagination bullet styling */
+.swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    display: inline-block !important;
+    border-radius: 50% !important;
+    background: #DDDDDD !important; /* Set bullet color */
+    opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #DDDDDD !important; /* Make active bullet darker */
+    opacity: 1 !important;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 0px;
+}
+
+/* Fix pagination container positioning */
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: -20px;
+    left: -24px;
+    width: 100%;
+    position: relative;
+}
+
+/* Slide styling */
+.swiper-slide {
+    text-align: start;
+    font-size: 18px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-radius: 6px;
+    border: 1px solid #EAEAEA;
+    width: 240px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Wrapper styling */
+.swiper-wrapper {
+    width: 100%;
+    gap: 0;
+    display: flex;
+    transition-timing-function: ease-out !important;
+}
+
+/* Ensure pagination is visible */
+.swiper-pagination {
+    position: relative !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+    z-index: 10 !important;
+}
+
+.swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    display: inline-block !important;
+    border-radius: 50% !important;
+    background: #DDDDDD !important;
+    opacity: 1 !important;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: 0px !important; /* Change from top: 4px to bottom: 0px */
+    left: 0;
+    width: 100%;
+    position: relative;
+}
+
+/* Content styling */
+.swiper-content,
+.f_footer {
+    display: none;
+}
+
+.content320 {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 16px;
+    background-color: #F8F8F8;
+    width: 100%;
+    position: relative;
+    padding-bottom: 0px; /* Add space at bottom */
+}
+
+.f_header320 {
+    height: 56px;
+    border-top: 1px solid #D9FFF5;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background: linear-gradient(90deg, #F8F8F8 0%, #FFFFFF 98.61%);
+}
+
+#myH1_320 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    color: #7E7E82;
+    font-family: 'TT Lakes', sans-serif;
+    position: relative;
+    margin: 0;
+    left: 32px;
+}
+.f_body--images{
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 240px);
+    gap: 16px 24px;
+    height: 166px;
+    overflow: hidden;
+    position: relative;
+    left: 24px;
+}
+
+.first-swiper-slide{
+    width: 240px !important;
+    max-width: 240px !important;
+    flex-shrink: 0 !important;
+    height: 72px;
+    border: 1px solid #EAEAEA;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.myImg {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+        right: 16px;
+        cursor: pointer;
+        color: #FF3E79;
+        border: solid 2px #FF3E79;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+    .first-swiper-slide img{
+        max-width: 128px;
+    }
+    .brands-images{
+        position: relative;
+        left: 16px;
+    }

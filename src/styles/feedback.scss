@@ -1,0 +1,143 @@
+.feedbckCacelbutton{
+    position: relative;
+    left: -36%;
+}
+.feedbackHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: start;
+}
+
+.feedbackHeaderLine {
+    width: 4px;
+    height: 40px;
+    background-color: #41F6D7;
+    display: flex;
+    justify-content: center;
+    align-content: start;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+    left: -2.5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+}
+
+
+.feedbackHeader h1 {
+    font-family: 'TT Lakes', sans-serif;
+    font-size: 24px;
+    color: #1B1C21;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.6px;
+    margin: 0;
+}
+.feedbackForm, .feedbackForm2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    gap: 16px;
+    
+}
+.feedbackInputs {
+    width: 90%;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #EAEAEA;
+    color: #B5B6BC;
+    padding-left: 15px;
+    font-family: 'TT Lakes', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+}
+
+.feedbackInputs :last-child {
+    height: 118px;
+}
+
+.feedbackContainer {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 200%;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    top: -30px;
+
+}
+.feedbackContainer2 {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 200%;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    top: -30px;
+
+}
+.feedbackFooter{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.consent-text{
+    font-family: 'TT Lakes', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #7E7E82;
+    text-align: start;
+    margin-left: 11.5px;
+}
+.consent-text a {
+    color: #FF3E79;
+    text-decoration: none;
+}
+
+.feedbbackSubmitButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 136px;
+    height: 32px;
+    background-color: #FF3E79;
+    border: solid 2px #FF3E79;
+    border-radius: 16px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+    word-spacing: 7px;
+    padding: 0 12px;
+    position: relative;
+    left: 28%;
+}
+
+.feedbackLabel-text {
+    position: relative;
+    left: 2%;
+    font-family: 'TT Lakes', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 12px;
+}
+.feedbackLabel-icon img {
+    margin-left: 8px;
+}
+
+#inputMessage{
+    min-width: 90%;
+    min-height: 118px;
+}
