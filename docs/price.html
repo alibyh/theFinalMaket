@@ -135,80 +135,85 @@
             <div class="services-slider__pagination swiper-pagination"></div>
         </div>
         
-        <!-- Desktop view (Table) -->
-        <table class="price-table">
-            <tr class="price-table__row">
-                <th>Ремонтные услуги</th>
-                <th>Цена</th>
-                <th>Сроки</th>
-                <th></th>
-            </tr>
-            <tr class="price-table__row">
-                <td>Диагностика</td>
-                <td>Бесплатно</td>
-                <td>30мин</td>
-                <td>
-                    <div class="service-card__order-btn">
-                        <label class="service-card__order-text">Заказать</label>
-                        <span class="service-card__order-icon">
-                            <img src="./assets/icons/dropdown.svg" alt="" />
-                        </span>
-                    </div>
-                </td>
-            </tr>
-            <tr class="price-table__row">
-                <td>Замена дисплея</td>
-                <td>1 000 ₽</td>
-                <td>30-120 мин</td>
-                <td>
-                    <div class="service-card__order-btn">
-                        <label class="service-card__order-text">Заказать</label>
-                        <span class="service-card__order-icon">
-                            <img src="./assets/icons/dropdown.svg" alt="" />
-                        </span>
-                    </div>
-                </td>
-            </tr>
-            <tr class="price-table__row">
-                <td>Замена полифонического динамика</td>
-                <td>1 000 ₽</td>
-                <td>30-120 мин</td>
-                <td>
-                    <div class="service-card__order-btn">
-                        <label class="service-card__order-text">Заказать</label>
-                        <span class="service-card__order-icon">
-                            <img src="./assets/icons/dropdown.svg" alt="" />
-                        </span>
-                    </div>
-                </td>
-            </tr>
-            <tr class="price-table__row">
-                <td>Тестирование с выдачей технического заключения</td>
-                <td>1 000 ₽</td>
-                <td>30-120 мин</td>
-                <td>
-                    <div class="service-card__order-btn">
-                        <label class="service-card__order-text">Заказать</label>
-                        <span class="service-card__order-icon">
-                            <img src="./assets/icons/dropdown.svg" alt="" />
-                        </span>
-                    </div>
-                </td>
-            </tr>
-            <tr class="price-table__row">
-                <td>Замена программного обеспечения</td>
-                <td>1 000 ₽</td>
-                <td>30-120 мин</td>
-                <td>
-                    <div class="service-card__order-btn">
-                        <label class="service-card__order-text">Заказать</label>
-                        <span class="service-card__order-icon">
-                            <img src="./assets/icons/dropdown.svg" alt="" />
-                        </span>
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <!-- Desktop view (Table with separate header) -->
+        <div class="price-table-container">
+            <!-- Table header outside the table -->
+            <div class="price-table-header">
+                <div class="header-cell">Ремонтные услуги</div>
+                <div class="header-cell">Цена</div>
+                <div class="header-cell">Сроки</div>
+                <div class="header-cell"></div>
+            </div>
+            
+            <!-- Table with data rows only -->
+            <table class="price-table">
+                <tr class="price-table__row">
+                    <td>Диагностика</td>
+                    <td>Бесплатно</td>
+                    <td>30мин</td>
+                    <td>
+                        <div class="service-card__order-btn">
+                            <label class="service-card__order-text">Заказать</label>
+                            <span class="service-card__order-icon">
+                                <img src="./assets/icons/dropdown.svg" alt="" />
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="price-table__row">
+                    <td>Замена дисплея</td>
+                    <td>1 000 ₽</td>
+                    <td>30-120 мин</td>
+                    <td>
+                        <div class="service-card__order-btn">
+                            <label class="service-card__order-text">Заказать</label>
+                            <span class="service-card__order-icon">
+                                <img src="./assets/icons/dropdown.svg" alt="" />
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="price-table__row">
+                    <td>Замена полифонического динамика</td>
+                    <td>1 000 ₽</td>
+                    <td>30-120 мин</td>
+                    <td>
+                        <div class="service-card__order-btn">
+                            <label class="service-card__order-text">Заказать</label>
+                            <span class="service-card__order-icon">
+                                <img src="./assets/icons/dropdown.svg" alt="" />
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="price-table__row">
+                    <td>Тестирование с выдачей технического заключения</td>
+                    <td>1 000 ₽</td>
+                    <td>30-120 мин</td>
+                    <td>
+                        <div class="service-card__order-btn">
+                            <label class="service-card__order-text">Заказать</label>
+                            <span class="service-card__order-icon">
+                                <img src="./assets/icons/dropdown.svg" alt="" />
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="price-table__row">
+                    <td>Замена программного обеспечения</td>
+                    <td>1 000 ₽</td>
+                    <td>30-120 мин</td>
+                    <td>
+                        <div class="service-card__order-btn">
+                            <label class="service-card__order-text">Заказать</label>
+                            <span class="service-card__order-icon">
+                                <img src="./assets/icons/dropdown.svg" alt="" />
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
     
     <div class="price-footer">

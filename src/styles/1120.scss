@@ -201,7 +201,7 @@
         left: 32px;
     }
 
-    tbody tr:not(:first-child):not(:last-child)::after {
+    tbody tr:not(:last-child)::after {
         left: 2%;
     }
 

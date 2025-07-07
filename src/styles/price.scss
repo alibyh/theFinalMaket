@@ -126,40 +126,109 @@
 }
 
 /* Desktop View - Table */
-.price-table {
+.price-table-container {
     display: none;
-    height: 100%;
-    background-color: #FFFFFF;
-    border-radius: 6px;
-    border-collapse: separate;
-    border-spacing: 0;
     position: relative;
     left: 24px;
+    padding-right: 24px;
+    width: calc(100% - 48px); /* Ensure container takes available width minus padding */
+    overflow-x: auto; /* Allow horizontal scrolling on very small screens */
+}
+
+/* Table header styling */
+.price-table-header {
+    display: flex;
+    background-color: #F8F8F8;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    height: 64px;
+    width: 100%;
+    min-width: 600px; /* Minimum width to prevent squishing on small screens */
+}
+
+.header-cell {
+    padding: 16px;
+    white-space: nowrap;
+    font-family: 'TT Lakes', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #7E7E82;
+    display: flex;
+    align-items: center;
+}
+
+/* Adjust cell widths using the specified percentages */
+/* For header cells */
+.header-cell:first-child {
+    width: 63.7%; /* Service name column */
+}
+
+.header-cell:nth-child(2) {
+    width: 16.46%; /* Price column */
+    justify-content: center;
+}
+
+.header-cell:nth-child(3) {
+    width: 17.76%; /* Timing column */
+    justify-content: center;
+}
+
+.header-cell:last-child {
+    width: 160px; /* Order button column */
+}
+
+.price-table {
+    width: 100%;
+    min-width: 600px; /* Match the header's minimum width */
+    height: 100%;
+    background-color: #FFFFFF;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 6px;
+    overflow: hidden; /* Ensure the border-radius is visible */
+}
+
+/* First row styling (now it's actually the first data row) */
+.price-table .price-table__row:first-child td:first-child {
+    border-top-left-radius: 6px;
+}
+
+.price-table .price-table__row:first-child td:last-child {
+    border-top-right-radius: 6px;
+}
+
+/* Last row styling */
+.price-table .price-table__row:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+}
+
+.price-table .price-table__row:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+}
+
+/* Remove the old first-row specific styles */
+.price-table .price-table__row:first-child {
+    background-color: transparent;
 }
 
 /* Override the border for the first row */
 .price-table .price-table__row:first-child {
-    background-color: #F8F8F8;
     border-bottom: none;
 }
 
-/* Ensure the first row doesn't have the pseudo-element border */
-.price-table .price-table__row:first-child::after {
-    content: none !important;
-}
 
 /* Add border radius to the first cell of the second row */
-.price-table__row:nth-child(2) td:first-child {
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-    overflow: hidden;
+.price-table__row:nth-child(2) td:first-child{
+    border-radius: 20px;
 }
 
 /* Add border radius to the last cell of the second row */
 .price-table__row:nth-child(2) td:last-child {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    overflow: hidden;
+    border-radius: 20px;
 }
 
 /* Ensure the first row header cells have proper border radius */
@@ -172,15 +241,16 @@
 }
 
 /* Modify the existing pseudo-element rule to target only body rows */
-.price-table .price-table__row:not(:first-child):not(:last-child)::after {
-        content: "";
+.price-table .price-table__row:not(:last-child)::after {
+    content: "";
     position: absolute;
     bottom: 0;
-    /* left: 4%; */
-    /* width: 100%; */
+    left: 0;
+    width: 95.2%; /* Use percentage width instead of padding */
     height: 1px;
     background-color: #EAEAEA;
-    padding: 0 47.6%;
+    margin: 0 auto;
+    left: 2.4%; /* Center the line */
 }
 
 th,
@@ -214,6 +284,25 @@ tr {
 tbody tr {
     border-bottom: none;
     position: relative;
+}
+
+/* For table cells - match the header cell widths */
+.price-table td:first-child {
+    width: 57.08%; /* Service name column */
+}
+
+.price-table td:nth-child(2) {
+    width: 16.13%; /* Price column */
+}
+
+.price-table td:nth-child(3) {
+    width: 17.16%; /* Timing column */
+}
+
+.price-table td:last-child {
+    width: 9.63%; /* Order button column */
+    padding-right: 24px;
+    white-space: nowrap;
 }
 
 table td:last-child {
@@ -345,8 +434,8 @@ tbody tr:last-child {
         padding-right: 24px;
     }
     
-    .price-table {
-        display: table;
+    .price-table-container {
+        display: block;
     }
     
     .price-section__mobile {
@@ -405,9 +494,4 @@ tbody tr:last-child {
     line-height: 24px;
     letter-spacing: -0.2px;
     color: #1B1C21;
-}
-
-thead tr::after,
-.price-table__row:first-child::after {
-    display: none !important;
 }
