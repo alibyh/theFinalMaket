@@ -215,8 +215,8 @@ body {
   gap: 20px;
   width: 90%;
   position: relative;
-  padding-left: var(--left-padding);;
   letter-spacing: 0.2px;
+  
 }
 
 .info-block-item label {
@@ -229,6 +229,7 @@ body {
   justify-content: start;
   align-items: start;
   gap: 20px;
+  padding-left: var(--left-padding);
 }
 
 .additional-info {
@@ -237,7 +238,6 @@ body {
   align-items: center;
   font-family: 'TT Lakes', sans-serif;
   position: relative;
-  padding-left: var(--left-padding);;
   gap: 8px;
 }
 

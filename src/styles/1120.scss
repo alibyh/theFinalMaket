@@ -12,6 +12,7 @@
         display: flex;
         flex-direction: row;
         gap: 0;
+        position: static !important;
     }
 
     .menu-section {
@@ -20,6 +21,9 @@
         background-color: white;
         height: 100%;
         position: fixed;
+    }
+    .menuContainer__menuHeader{
+        padding-right: 0;
     }
 
     .content-section {
@@ -152,18 +156,10 @@
         display: none;
     }
 
-    #myH1 {
 
-        left: 32px;
-    }
 
     .topLine {
         width: 1120px;
-    }
-
-    .f_footer {
-
-        left: 32px;
     }
 
     .f_body--images {
@@ -194,15 +190,6 @@
 
     .menuContainer__footer {
         padding-bottom: 30px;
-    }
-
-    // Footer {
-    //     width: 80%;
-    // }
-
-    /* Table styles for desktop */
-    table {
-        left: 32px;
     }
 
     tbody tr:not(:last-child)::after {

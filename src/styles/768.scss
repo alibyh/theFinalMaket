@@ -36,11 +36,11 @@ $lineColor: #D9FFF5;
         gap: 18px;
     }
 
-    .container__mainBody--content,
-    .additional-info,
-    .info-block-item {
-        padding-left: var(--left-padding);
-    }
+    // .container__mainBody--content,
+    // .additional-info,
+    // .info-block-item {
+    //     padding-left: var(--left-padding);
+    // }
 
     .container__header__leftIcons {
         display: flex;
@@ -71,6 +71,7 @@ $lineColor: #D9FFF5;
     .info-block {
         display: flex;
         flex-direction: row;
+        
     }
 
     .info-block-item {
@@ -237,18 +238,19 @@ $lineColor: #D9FFF5;
     #myFeedbackDialog,
     #myFeedbackDialog2 {
         display: inline-table;
-        padding-top: 50px;
+        padding-top: 24px;
     }
     .feedbackContainer{
-        top: -75px;
+        top: 0;
         width: 440px;
         border-left: solid 0.5px #41F6D7;
     }
 
     #feedbckCacelbutton,
     #feedbckCacelbutton2 {
-        left: -292px;
-        top: 59px;
+        position: absolute;
+        left: -72px;
+        top: 0px;
     }
     .price-table{
         display: table;

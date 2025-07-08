@@ -60,14 +60,14 @@
     justify-content: center;
     gap: 16px;
     overflow: hidden;
-    padding: 8px;
+    padding-left: 8px;
 }
 
 .services-slider::after {
     content: "";
     position: absolute;
     top: 0;
-    right: -5%;
+    right: -6%;
     width: 45px;
     height: 90%;
     pointer-events: none;
@@ -110,7 +110,7 @@
 
 /* Override Swiper's default spacing */
 .services-slider .swiper-wrapper {
-    gap: 16px !important;
+    gap: 13px !important;
 }
 
 .services-slider__slide {
