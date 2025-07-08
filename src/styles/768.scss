@@ -63,7 +63,7 @@ $lineColor: #D9FFF5;
 
     .talking {
         gap: 10px;
-        width: 85%;
+        width: 89%;
         position: relative;
         top: 5px;
     }
@@ -71,6 +71,7 @@ $lineColor: #D9FFF5;
     .info-block {
         display: flex;
         flex-direction: row;
+        gap: 36px;
         
     }
 
@@ -100,6 +101,10 @@ $lineColor: #D9FFF5;
     .menu-side-line{
         top: -2.8px;
         left: -13px;
+    }
+    .menuContainer__footer {
+        padding-bottom: 30px;
+        gap: 40px;
     }
 
     /* ******************************************** swiper ******************************************** */
