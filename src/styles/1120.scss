@@ -1,4 +1,8 @@
 @media (min-width: 1120px) {
+    :root {
+    --left-padding: 32px;
+  }
+    
     body {
         background-color: #F8F8F8;
         margin: 0;
@@ -184,7 +188,7 @@
         padding: 0;
         padding-top: 32px;
         border: none;
-        overflow-y: hidden;
+        overflow-y: scroll;
         scroll-behavior: unset;
     }
 

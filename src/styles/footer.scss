@@ -9,7 +9,7 @@ Footer {
   bottom: 0;
   border-top: solid 1px #D9FFF5;
   width: -webkit-fill-available;
-  padding: 16px 16px 0 16px;;
+  padding: 16px var(--left-padding) 0 var(--left-padding);
 
 }
 

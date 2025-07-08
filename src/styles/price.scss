@@ -28,7 +28,8 @@
     position: relative;
     margin: 0;
     width: 60%;
-    left: 24px;
+    padding-left: var(--left-padding);
+    ;
 }
 
 /* Combined content container */
@@ -36,6 +37,8 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 /* Price mini title - Common for both views */
@@ -57,7 +60,7 @@
     justify-content: center;
     gap: 16px;
     overflow: hidden;
-    padding: 0 16px;
+    padding: 8px;
 }
 
 .services-slider::after {
@@ -129,10 +132,9 @@
 .price-table-container {
     display: none;
     position: relative;
-    left: 24px;
-    padding-right: 24px;
-    width: calc(100% - 48px); /* Ensure container takes available width minus padding */
-    overflow-x: auto; /* Allow horizontal scrolling on very small screens */
+
+    overflow-x: auto;
+    /* Allow horizontal scrolling on very small screens */
 }
 
 /* Table header styling */
@@ -143,7 +145,8 @@
     border-top-right-radius: 6px;
     height: 64px;
     width: 100%;
-    min-width: 600px; /* Minimum width to prevent squishing on small screens */
+    min-width: 600px;
+    /* Minimum width to prevent squishing on small screens */
 }
 
 .header-cell {
@@ -162,26 +165,31 @@
 /* Adjust cell widths using the specified percentages */
 /* For header cells */
 .header-cell:first-child {
-    width: 63.7%; /* Service name column */
+    width: 63.7%;
+    /* Service name column */
 }
 
 .header-cell:nth-child(2) {
-    width: 16.46%; /* Price column */
+    width: 16.46%;
+    /* Price column */
     justify-content: center;
 }
 
 .header-cell:nth-child(3) {
-    width: 17.76%; /* Timing column */
+    width: 17.76%;
+    /* Timing column */
     justify-content: center;
 }
 
 .header-cell:last-child {
-    width: 160px; /* Order button column */
+    width: 160px;
+    /* Order button column */
 }
 
 .price-table {
     width: 100%;
-    min-width: 600px; /* Match the header's minimum width */
+    min-width: 600px;
+    /* Match the header's minimum width */
     height: 100%;
     background-color: #FFFFFF;
     border-bottom-left-radius: 6px;
@@ -189,7 +197,8 @@
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 6px;
-    overflow: hidden; /* Ensure the border-radius is visible */
+    overflow: hidden;
+    /* Ensure the border-radius is visible */
 }
 
 /* First row styling (now it's actually the first data row) */
@@ -222,7 +231,7 @@
 
 
 /* Add border radius to the first cell of the second row */
-.price-table__row:nth-child(2) td:first-child{
+.price-table__row:nth-child(2) td:first-child {
     border-radius: 20px;
 }
 
@@ -246,11 +255,13 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 95.2%; /* Use percentage width instead of padding */
+    width: 95.2%;
+    /* Use percentage width instead of padding */
     height: 1px;
     background-color: #EAEAEA;
     margin: 0 auto;
-    left: 2.4%; /* Center the line */
+    left: 2.4%;
+    /* Center the line */
 }
 
 th,
@@ -288,19 +299,23 @@ tbody tr {
 
 /* For table cells - match the header cell widths */
 .price-table td:first-child {
-    width: 57.08%; /* Service name column */
+    width: 57.08%;
+    /* Service name column */
 }
 
 .price-table td:nth-child(2) {
-    width: 16.13%; /* Price column */
+    width: 16.13%;
+    /* Price column */
 }
 
 .price-table td:nth-child(3) {
-    width: 17.16%; /* Timing column */
+    width: 17.16%;
+    /* Timing column */
 }
 
 .price-table td:last-child {
-    width: 9.63%; /* Order button column */
+    width: 9.63%;
+    /* Order button column */
     padding-right: 24px;
     white-space: nowrap;
 }
@@ -426,18 +441,22 @@ tbody tr:last-child {
 
 /* Responsive Styles */
 @media (min-width: 768px) {
+
     /* Hide mobile view, show desktop view */
     .services-slider {
         display: none;
     }
-    .price-content{
-        padding-right: 24px;
+
+    .price-content {
+        padding-right: var(--left-padding);
+        padding-left: var(--left-padding);
     }
-    
+
     .price-table-container {
         display: block;
+        overflow-x: hidden;
     }
-    
+
     .price-section__mobile {
         display: none;
     }
@@ -456,7 +475,8 @@ tbody tr:last-child {
     .price-header__title {
         height: auto;
         position: relative;
-        left: 24px;
+        padding-left: var(--left-padding);
+        ;
     }
 
     .price-footer__disclaimer {
@@ -468,7 +488,8 @@ tbody tr:last-child {
 .price-footer {
     position: relative;
     bottom: 0;
-    left: 32px;
+    padding-left: var(--left-padding);
+    ;
     width: 80%;
     background-color: #F8F8F8;
     display: flex;

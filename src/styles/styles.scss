@@ -1,5 +1,9 @@
 @import 'fonts.css';
-
+:root {
+  --left-padding: 16px; /* Default for mobile */
+  --background-color: #F8F8F8;
+  --line-color: #D9FFF5;
+}
 $myBackground: #F8F8F8;
 
 html {
@@ -130,7 +134,7 @@ body {
   justify-content: start;
   align-items: center;
   position: relative;
-  left: 16px;
+  padding-left: var(--left-padding);;
 }
 
 .pannel {
@@ -172,8 +176,10 @@ body {
   z-index: 10;
 }
 
-.pannel::-webkit-scrollbar {
+.pannel::-webkit-scrollbar, .menuContainer::-webkit-scrollbar  {
   height: 0;
+  width: 0;
+  background-color: transparent;
 }
 
 .main-info {
@@ -209,7 +215,7 @@ body {
   gap: 20px;
   width: 90%;
   position: relative;
-  left: 16px;
+  padding-left: var(--left-padding);;
   letter-spacing: 0.2px;
 }
 
@@ -231,7 +237,7 @@ body {
   align-items: center;
   font-family: 'TT Lakes', sans-serif;
   position: relative;
-  left: 16px;
+  padding-left: var(--left-padding);;
   gap: 8px;
 }
 

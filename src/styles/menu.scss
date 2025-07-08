@@ -17,6 +17,7 @@
     justify-content: start;
     border: 1px solid rgb(228, 228, 228);
     box-shadow: 16px 0px 52px 0px #0E185033;
+    overflow-y: scroll;
 }
 
 .menuContainer[open] {
@@ -69,7 +70,7 @@
     justify-content: space-between;
     gap: 8px;
     width: 100%;
-    padding-bottom: 100px;
+    padding-bottom: 32px;
 }
 
 .items {
@@ -104,7 +105,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
-    gap: 100px;
     padding: 0px 16px 0 16px;
 }
 

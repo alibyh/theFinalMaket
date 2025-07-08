@@ -8,7 +8,6 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
-    gap: 26px;
     background-color: #F8F8F8;
     width: 100%;
     position: relative;
@@ -64,7 +63,7 @@
     margin: 0;
     width: 100%;
     position: relative;
-    left: 24px;
+    padding-left: var(--left-padding);;
 }
 
 .secondMainContentItems .myImg,
@@ -104,7 +103,7 @@
 
 .secondMainContentItems label:not(.arrow){
     position: relative;
-    left: 16px;
+    padding-left: var(--left-padding);;
 
     font-family: 'TT Lakes', sans-serif;
     font-weight: 500;
@@ -157,7 +156,7 @@
         display: none;
     }
     .secondMainContentItems{
-        width: 222.4px;
+        width: 222px;
     }
 
     .secondbigContent {
@@ -168,13 +167,13 @@
 
     .secondMainContentItems1 {
         display: grid;
-        grid-template-columns: repeat(auto-fit, 222px);
-        gap: 16px 26px;
+        grid-template-columns: repeat(auto-fit, 224px);
+        gap: 16px 24px;
     }
 
     .swiper-wrapper2 {
         position: relative;
-        left: 24px;
+        padding-left: var(--left-padding);;
         height: 172px;
         overflow: hidden;
         overflow-x: hidden;
@@ -191,8 +190,8 @@
     }
 
     .secondMainContentItems1 {
-        grid-template-columns: repeat(auto-fit, 238.4px);
-        gap: 16px 34px;
+        grid-template-columns: repeat(auto-fit, 240px);
+        gap: 16px 32px;
     }
     .secondMainContentItems .myImg{
         left: 184px;

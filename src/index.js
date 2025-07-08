@@ -11,6 +11,25 @@ import './styles/menu-transitions.scss'
 import Swiper from 'swiper'; // Import Swiper directly
 import { Pagination, Navigation } from 'swiper/modules'; // Import required modules
 
+// Helper functions to manage body scrolling
+const disableBodyScroll = () => {
+    // Store the current scroll position
+    const scrollY = window.scrollY;
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.dataset.scrollY = scrollY;
+};
+
+const enableBodyScroll = () => {
+    // Restore the scroll position
+    const scrollY = document.body.dataset.scrollY || '0';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, parseInt(scrollY || '0'));
+    delete document.body.dataset.scrollY;
+};
+
 // Register Swiper modules
 Swiper.use([Pagination, Navigation]);
 
@@ -95,8 +114,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const handleMenuForLargeScreens = (e) => {
         if (e.matches) {
+            document.body.style.position = 'static';
+
             // Screen size increased to ≥1120px
             const menuContainer = document.getElementById('menuContainer');
+
+            // Always enable scrolling for desktop view
+            enableBodyScroll();
 
             // Check if menu already exists
             if (menuContainer && menuContainer.innerHTML.trim() !== '') {
@@ -147,6 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (menuContainer) {
                             menuContainer.innerHTML = '';
                         }
+
+                        // Enable scrolling when menu is removed
+                        enableBodyScroll();
                     }, 300); // Match this with your CSS transition time
                 } else {
                     // Menu is already closed, just clear it
@@ -180,6 +207,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 const dialogWrapper = document.getElementById('dialogWrapper');
                 const feedbackChatButton = document.getElementById('feedbackChatButton');
                 const feedbackButton = document.getElementById('feedbackButton');
+
+                // Disable scrolling when menu opens (only for mobile)
+                if (!isLargeScreen) {
+                    disableBodyScroll();
+                    document.body.style.position = 'fixed';
+                }
+
                 if (feedbackChatButton) {
                     feedbackChatButton.addEventListener('click', () => {
                         myFeedbackDialog2.style.boxShadow = '16px -52px 52px -1px rgba(14, 24, 80, 0.2)';
@@ -248,6 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 if (dialogWrapper) {
                                     dialogWrapper.classList.remove('active');
                                 }
+                                enableBodyScroll(); // Enable body scroll when menu closes
                             }, 300); // Match this with your CSS transition time
                         });
                     }
@@ -261,6 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 // Wait for animation to complete before hiding backdrop
                                 setTimeout(() => {
                                     dialogWrapper.classList.remove('active');
+                                    enableBodyScroll(); // Enable body scroll when menu closes
                                 }, 300); // Match this with your CSS transition time
                             }
                         });
@@ -282,6 +318,8 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(error => {
                 console.error("Error fetching menu:", error);
+                // Make sure to re-enable scrolling if there's an error
+                enableBodyScroll();
             });
     };
 
@@ -473,11 +511,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to handle responsive price section
     function handlePriceSection() {
         const mediaQuery = window.matchMedia('(min-width: 768px)');
-        
+
         function togglePriceView() {
             const servicesSlider = document.querySelector('.services-slider');
             const priceTable = document.querySelector('.price-table');
-            
+
             if (servicesSlider && priceTable) {
                 if (mediaQuery.matches) {
                     // Desktop view
@@ -487,20 +525,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     // Mobile view
                     servicesSlider.style.display = 'flex';
                     priceTable.style.display = 'none';
-                    
+
                     // Reinitialize Swiper for mobile
                     initializeServiceSlider();
                 }
             }
         }
-        
+
         // Initialize on load
         togglePriceView();
-        
+
         // Listen for screen size changes
         mediaQuery.addEventListener('change', togglePriceView);
     }
-    
+
     // Function to initialize service slider
     function initializeServiceSlider() {
         const servicesSliders = document.querySelectorAll('.services-slider');
