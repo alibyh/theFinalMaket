@@ -554,6 +554,8 @@ body {
 .price__header-cell:nth-child(2) {
     width: 24%;
     justify-content: center;
+        position: relative;
+    right: 7px;
 }
 
 .price__header-cell:nth-child(3) {
