@@ -1,13 +1,114 @@
 @import 'fonts.css';
 
-.price-section {
+body {
+    font-family: 'TT Lakes';
+}
+
+:root {
+    --left-padding: 16px;
+    /* Default for mobile */
+    --background-color: #F8F8F8;
+    --line-color: #D9FFF5;
+}
+
+.price__slider.swiper {
+    position: relative;
+    padding: 0;
+    padding-left: 8px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    overflow: visible;
+
+}
+
+/* Fix pagination bullet styling */
+.price__slider .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    display: inline-block !important;
+    border-radius: 50% !important;
+    background: #DDDDDD !important;
+    /* Set bullet color */
+    opacity: 1 !important;
+}
+
+.price__slider .swiper-pagination-bullet-active {
+    background: #B5B6BC !important;
+    /* Make active bullet darker */
+    opacity: 1 !important;
+}
+
+.price__slider.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.price__slider .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 0px;
+}
+
+/* Fix pagination container positioning */
+.price__slider.swiper-horizontal>.swiper-pagination-bullets,
+.price__slider .swiper-pagination-bullets.swiper-pagination-horizontal,
+.price__slider .swiper-pagination-custom,
+.price__slider .swiper-pagination-fraction {
+    bottom: -20px;
+    left: -24px;
+    width: 100%;
+    position: relative;
+}
+
+/* Slide styling */
+.price__slide.swiper-slide {
+    text-align: start;
+    font-size: 18px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-radius: 6px;
+    border: 1px solid #EAEAEA;
+    width: 240px !important;
+    flex-shrink: 0 !important;
+    border: none;
+}
+
+.price__slider-pagination.swiper-pagination {
+    position: relative !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+    z-index: 10 !important;
+}
+
+.price__slider .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    display: inline-block !important;
+    border-radius: 50% !important;
+    background: #DDDDDD !important;
+    opacity: 1 !important;
+}
+
+.price__slider.swiper-horizontal>.swiper-pagination-bullets,
+.price__slider .swiper-pagination-bullets.swiper-pagination-horizontal,
+.price__slider .swiper-pagination-custom,
+.price__slider .swiper-pagination-fraction {
+    bottom: 0px !important;
+    /* Change from top: 4px to bottom: 0px */
+    left: 0;
+    width: 100%;
+    position: relative;
+}
+
+.price {
     display: flex;
     flex-direction: column;
     gap: 32px;
 }
 
 /* Price Header - Common for both mobile and desktop */
-.price-header {
+.price__header {
     height: 56px;
     border-top: 1px solid #D9FFF5;
     display: flex;
@@ -17,7 +118,7 @@
     width: 100%;
 }
 
-.price-header__title {
+.price__title {
     font-family: 'TT Lakes';
     font-weight: 400;
     font-size: 16px;
@@ -28,12 +129,11 @@
     position: relative;
     margin: 0;
     width: 60%;
-    padding-left: var(--left-padding);
-    ;
+    padding-left: 16px;
 }
 
 /* Combined content container */
-.price-content {
+.price__content {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -42,41 +142,44 @@
 }
 
 /* Price mini title - Common for both views */
-.price-mini-title {
+.price__mini-title {
     font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #7E7E82;
 }
 
 /* Mobile View - Services Slider */
-.services-slider {
-    width: -webkit-fill-available;
+.price__slider {
+    width: 90%;
     height: 100%;
     position: relative;
-    left: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 16px;
+    padding: 0 16px;
+    padding-bottom: 32px;
+    /* Add space for pagination */
     overflow: hidden;
-    padding-left: 8px;
 }
 
-.services-slider::after {
+.price__slider::after {
     content: "";
     position: absolute;
     top: 0;
-    right: -6%;
+    right: -10%;
     width: 45px;
     height: 90%;
     pointer-events: none;
-    background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+    background: linear-gradient(270deg, #ffffff 16.84%, rgba(248, 248, 248, 0.0001) 100%);
     z-index: 10;
 }
 
 /* Update pagination styles to match swiper.scss */
-.services-slider .swiper-pagination-bullet {
+.price__slider .swiper-pagination-bullet {
     width: 12px !important;
     height: 12px !important;
     display: inline-block !important;
@@ -86,34 +189,46 @@
     margin: 0 0px !important;
 }
 
-.services-slider .swiper-pagination-bullet-active {
+.price__slider .swiper-pagination-bullet-active {
     background: #B5B6BC !important;
     opacity: 1 !important;
 }
 
-.services-slider__pagination {
-    position: relative;
-    top: 4px;
-    width: 100%;
-    height: 100%;
+.price__slider-pagination.swiper-pagination {
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
     display: flex !important;
-    flex-direction: row;
-    justify-content: center;
-    gap: 12px;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px !important;
+    height: auto !important;
+    padding: 0 0 !important;
 }
 
-.services-slider__wrapper {
+.price__slider .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    margin: 0 0 !important;
+    background-color: #DDDDDD !important;
+    opacity: 1 !important;
+}
+
+.price__slider .swiper-pagination-bullet-active {
+    background-color: #B5B6BC !important;
+}
+
+.price__slider-wrapper {
     width: auto;
     position: relative;
-    left: 0px;
 }
 
 /* Override Swiper's default spacing */
-.services-slider .swiper-wrapper {
-    gap: 13px !important;
+.price__slider .swiper-wrapper {
+    gap: 16px;
 }
 
-.services-slider__slide {
+.price__slide {
     text-align: center;
     font-size: 18px;
     background: #444;
@@ -122,261 +237,48 @@
     align-items: center;
     border-radius: 7px;
     width: 256px !important;
-    min-width: 256px !important;
+    min-width: 260px !important;
     image-rendering: auto;
     shape-rendering: geometricPrecision;
     margin-right: 0 !important;
 }
 
-/* Desktop View - Table */
-.price-table-container {
-    display: none;
-    position: relative;
-
-    overflow-x: auto;
-    /* Allow horizontal scrolling on very small screens */
-}
-
-/* Table header styling */
-.price-table-header {
-    display: flex;
-    background-color: #F8F8F8;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    height: 64px;
-    width: 100%;
-    min-width: 600px;
-    /* Minimum width to prevent squishing on small screens */
-}
-
-.header-cell {
-    padding: 16px;
-    white-space: nowrap;
-    font-family: 'TT Lakes', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.2px;
-    color: #7E7E82;
-    display: flex;
-    align-items: center;
-}
-
-/* Adjust cell widths using the specified percentages */
-/* For header cells */
-.header-cell:first-child {
-    width: 63.7%;
-    /* Service name column */
-}
-
-.header-cell:nth-child(2) {
-    width: 16.46%;
-    /* Price column */
-    justify-content: center;
-}
-
-.header-cell:nth-child(3) {
-    width: 17.76%;
-    /* Timing column */
-    justify-content: center;
-}
-
-.header-cell:last-child {
-    width: 160px;
-    /* Order button column */
-}
-
-.price-table {
-    width: 100%;
-    min-width: 600px;
-    /* Match the header's minimum width */
-    height: 100%;
-    background-color: #FFFFFF;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 6px;
-    overflow: hidden;
-    /* Ensure the border-radius is visible */
-}
-
-/* First row styling (now it's actually the first data row) */
-.price-table .price-table__row:first-child td:first-child {
-    border-top-left-radius: 6px;
-}
-
-.price-table .price-table__row:first-child td:last-child {
-    border-top-right-radius: 6px;
-}
-
-/* Last row styling */
-.price-table .price-table__row:last-child td:first-child {
-    border-bottom-left-radius: 6px;
-}
-
-.price-table .price-table__row:last-child td:last-child {
-    border-bottom-right-radius: 6px;
-}
-
-/* Remove the old first-row specific styles */
-.price-table .price-table__row:first-child {
-    background-color: transparent;
-}
-
-/* Override the border for the first row */
-.price-table .price-table__row:first-child {
-    border-bottom: none;
-}
-
-
-/* Add border radius to the first cell of the second row */
-.price-table__row:nth-child(2) td:first-child {
-    border-radius: 20px;
-}
-
-/* Add border radius to the last cell of the second row */
-.price-table__row:nth-child(2) td:last-child {
-    border-radius: 20px;
-}
-
-/* Ensure the first row header cells have proper border radius */
-.price-table__row:first-child th:first-child {
-    border-top-left-radius: 6px;
-}
-
-.price-table__row:first-child th:last-child {
-    border-top-right-radius: 6px;
-}
-
-/* Modify the existing pseudo-element rule to target only body rows */
-.price-table .price-table__row:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 95.2%;
-    /* Use percentage width instead of padding */
-    height: 1px;
-    background-color: #EAEAEA;
-    margin: 0 auto;
-    left: 2.4%;
-    /* Center the line */
-}
-
-th,
-td {
-    padding: 16px;
-    white-space: nowrap;
-    font-family: 'TT Lakes', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: -0.2px;
-    color: #1B1C21;
-}
-
-th {
-    text-align: left;
-    font-family: 'TT Lakes', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.2px;
-    color: #7E7E82;
-}
-
-tr {
-    height: 64px;
-    display: table-row;
-    width: 100%;
-}
-
-tbody tr {
-    border-bottom: none;
-    position: relative;
-}
-
-/* For table cells - match the header cell widths */
-.price-table td:first-child {
-    width: 57.08%;
-    /* Service name column */
-}
-
-.price-table td:nth-child(2) {
-    width: 16.13%;
-    /* Price column */
-}
-
-.price-table td:nth-child(3) {
-    width: 17.16%;
-    /* Timing column */
-}
-
-.price-table td:last-child {
-    width: 9.63%;
-    /* Order button column */
-    padding-right: 24px;
-    white-space: nowrap;
-}
-
-table td:last-child {
-    width: 1%;
-    white-space: nowrap;
-    padding-right: 24px;
-}
-
-table .service-card__order-btn {
-    white-space: nowrap;
-    width: auto;
-    min-width: 115px;
-    padding: 0;
-    justify-content: center;
-}
-
-tbody tr:last-child {
-    border-bottom: none;
-}
-
 /* Service Card - Common for both views */
-.service-card {
-    width: 256px;
-    height: 200px;
-    background-color: white;
-    border-radius: 6px;
+.price__card {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 12px;
-    box-sizing: border-box;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 14.10px;
+    height: 168px;
+
 }
 
-.service-card__service,
-.service-card__price {
+.price__card-service,
+.price__card-price {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.price__service-label,
+.price__price-label {
     font-family: 'TT Lakes';
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0.2px;
     color: #1B1C21;
+}
+
+.price__card-timing {
     display: flex;
     flex-direction: column;
     align-items: start;
+    gap: 4px;
 }
 
-.service-card__service div,
-.service-card__price div {
-    color: #7E7E82;
-}
-
-.service-card__timing {
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    gap: 28px;
-}
-
-.service-card__timing-info {
+.price__timing-label {
     font-family: 'TT Lakes';
     font-weight: 400;
     font-size: 14px;
@@ -389,107 +291,154 @@ tbody tr:last-child {
     min-width: 81px;
 }
 
-.service-card__timing-info div {
-    color: #7E7E82;
-}
-
-.service-card__order-btn {
+.price__order-btn {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 119px;
-    height: 28px;
-    background-color: #FF3E79;
-    border: solid 2px #FF3E79;
-    border-radius: 16px;
-    color: white;
-    text-transform: uppercase;
-    font-size: 12px;
-    cursor: pointer;
-    word-spacing: 7px;
-    padding: 0 12px;
-    gap: 8px;
-    position: relative;
-    top: 7px;
-    min-width: 115px;
-    padding: 0;
     justify-content: center;
+    background: #FF3E79;
+    border-radius: 16px;
+    padding: 4px 12px;
+    gap: 4.19001px;
+    cursor: pointer;
 }
 
-.service-card__order-text {
-    position: relative;
-    font-family: 'TT Lakes', sans-serif;
+.price__order-text {
+    font-family: 'TT Lakes';
     font-weight: 700;
-    color: white;
     font-size: 12px;
-    letter-spacing: -0.15px;
     line-height: 24px;
+    letter-spacing: -0.15px;
+    color: #FFFFFF;
+    text-transform: uppercase;
 }
 
-.service-card__order-icon {
+.price__order-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 24px;
     height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transform: rotate(90deg);
 }
 
-.service-card__order-icon img {
+.price__order-icon img {
     width: 7px;
-    height: 9.64px;
+    height: 10px;
+    transform: rotate(-90deg);
+}
+
+/* Services Table - Desktop View */
+.price__services-container {
+    width: 100%;
+}
+
+.price__table-header {
+    display: none;
+    /* Hidden by default on mobile */
+    width: auto;
+    background-color: #F8F8F8;
+    padding: 16px;
+    border-radius: 6px;
+    padding: 0 16px 16px 16px;
+}
+
+.price__header-cell {
+    font-family: 'TT Lakes';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #7E7E82;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
 }
 
 /* Responsive Styles */
 @media (min-width: 768px) {
-
-    /* Hide mobile view, show desktop view */
-    .services-slider {
-        display: none;
+    .price__content {
+        padding-right: 24px;
+        padding-left: 24px;
     }
 
-    .price-content {
-        padding-right: var(--left-padding);
-        padding-left: var(--left-padding);
+    .price__slider-pagination.swiper-pagination {
+        display: none !important;
     }
 
-    .price-table-container {
-        display: block;
-        overflow-x: hidden;
+    .price__slider-pagination .swiper-pagination {
+        display: none !important;
     }
 
-    .price-section__mobile {
-        display: none;
-    }
-
-    .price-section__desktop {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-    }
-
-    .price-header {
+    .price__header {
         height: 56px;
         width: 100%;
     }
 
-    .price-header__title {
+    .price__title {
         height: auto;
         position: relative;
-        padding-left: var(--left-padding);
-        ;
+        padding-left: 24px;
     }
 
-    .price-footer__disclaimer {
+    .price__disclaimer {
         width: 63%;
+    }
+
+    .price__slider .swiper-wrapper {
+        gap: 0 !important;
+    }
+
+    .price__table-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Table view for desktop */
+    .price__services-table {
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .price__table-row {
+        display: table-row;
+    }
+
+    .price__table-cell {
+        display: table-cell;
+        padding: 16px;
+        vertical-align: middle;
+    }
+
+    .price__table-cell--service {
+        width: 40%;
+    }
+
+    .price__table-cell--price {
+        width: 20%;
+    }
+
+    .price__table-cell--timing {
+        width: 20%;
+    }
+
+    .price__table-cell--action {
+        width: 20%;
+        text-align: right;
+    }
+
+    /* First row styling */
+    .price__table-row:first-child .price__table-cell:first-child {
+        border-top-left-radius: 6px;
     }
 }
 
 /* Price Footer - Common for both views */
-.price-footer {
+.price__footer {
     position: relative;
     bottom: 0;
-    padding-left: var(--left-padding);
-    ;
+    padding-left: 16px;
     width: 80%;
     background-color: #F8F8F8;
     display: flex;
@@ -499,7 +448,7 @@ tbody tr:last-child {
     gap: 16px;
 }
 
-.price-footer__disclaimer {
+.price__disclaimer {
     font-family: 'TT Lakes';
     font-weight: 400;
     font-size: 14px;
@@ -508,11 +457,278 @@ tbody tr:last-child {
     color: #1B1C21;
 }
 
-.price-footer__cta {
+.price__cta {
     font-family: 'TT Lakes';
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.2px;
     color: #1B1C21;
+}
+
+/* Services Table - Desktop View */
+.price__services-table {
+    display: none;
+    /* Hidden by default on mobile */
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.price__table-header {
+    display: none;
+    background-color: #F8F8F8;
+    font-family: 'TT Lakes';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #7E7E82;
+    text-transform: uppercase;
+
+}
+
+.price__table-row {
+    display: flex;
+    border-bottom: 1px solid #EAEAEA;
+    padding: 16px;
+}
+
+.price__table-row:last-child {
+    border-bottom: none;
+}
+
+.price__table-cell {
+    display: flex;
+    align-items: center;
+    font-family: 'TT Lakes';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    color: #1B1C21;
+}
+
+.price__table-cell--service {
+    flex: 3;
+    padding-right: 16px;
+}
+
+.price__table-cell--price {
+    flex: 1;
+    justify-content: center;
+}
+
+.price__table-cell--timing {
+    flex: 1;
+    justify-content: center;
+}
+
+.price__table-cell--action {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.price__header-cell {
+    white-space: nowrap;
+    font-family: 'TT Lakes', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #7E7E82;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+/* Adjust cell widths using the specified percentages */
+/* For header cells */
+.price__header-cell:first-child {
+    width: 35%;
+    /* Service name column */
+    padding-left: 0;
+}
+
+.price__header-cell:nth-child(2) {
+    width: 24%;
+    justify-content: center;
+}
+
+.price__header-cell:nth-child(3) {
+    width: 31%;
+    /* Timing column */
+    justify-content: start;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Add border radius to the first cell of the second row */
+.price__table-row:nth-child(2) td:first-child {
+    border-radius: 20px;
+}
+
+/* Add border radius to the last cell of the second row */
+.price__table-row:nth-child(2) td:last-child {
+    border-radius: 20px;
+}
+
+/* Ensure the first row header cells have proper border radius */
+.price__table-row:first-child th:first-child {
+    border-top-left-radius: 6px;
+}
+
+@media (min-width: 768px) {
+    .price__title {
+        padding-left: 32px;
+    }
+    /* Transform swiper container to table */
+    .price__slider.swiper {
+        width: 100%;
+        padding: 0;
+        background-color: white;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .price__table-header {
+        display: flex;
+    }
+
+    /* Hide swiper pagination and gradient */
+    .price__slider::after,
+    .price__slider-pagination {
+        display: none;
+    }
+
+    /* Transform swiper wrapper to table body */
+    .price__slider .swiper-wrapper {
+        display: flex;
+        flex-direction: column !important;
+        transform: translate3d(0, 0, 0) !important;
+        position: relative;
+        background-color: white;
+        width: 100%;
+    }
+
+    /* Transform slides to table rows */
+    .price__slide.swiper-slide {
+        width: 100% !important;
+        height: auto !important;
+        margin-right: 0 !important;
+        margin-bottom: 0;
+        background-color: white;
+        border-radius: 0;
+        border: none;
+        position: relative;
+    }
+
+    /* Replace border-bottom with ::after pseudo-element */
+    .price__slide.swiper-slide::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 2%;
+        width: 95.5%;
+        height: 1px;
+        background-color: #EAEAEA;
+    }
+
+    .price__slide.swiper-slide:last-child::after {
+        display: none;
+    }
+
+    /* Transform service cards to table rows */
+    .price__card {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        padding: 16px 16px;
+        border-radius: 0;
+        align-items: center;
+    }
+
+    /* Adjust service column to match header cell width */
+    .price__card-service {
+        width: 35%;
+        padding-right: 0;
+        flex: none;
+    }
+
+    .price__card-service .price__mini-title {
+        display: none;
+    }
+
+    /* Adjust price column to match header cell width */
+    .price__card-price {
+        width: 34%;
+        flex: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .srokAndutton {
+        display: flex;
+        gap: 34px;
+        align-items: center;
+        justify-content: space-between;
+        width: 31%;
+    }
+
+    .price__card-price .price__mini-title {
+        display: none;
+    }
+
+    /* Adjust timing column */
+    .price__card-timing {
+        flex: none;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .price__timing-label {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .price__card-timing .price__mini-title {
+        display: none;
+    }
+
+    /* Adjust order button */
+    .price__order-btn {
+        position: relative;
+        top: -6%;
+    }
+
+    .price__card-action {
+        width: 119px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .price__footer {
+        padding-left: 24px;
+    }
+}
+
+/* For larger screens, make the table even more spacious */
+@media (min-width: 1120px) {
+    .price__card {
+        padding: 16px 24px;
+    }
+
+    .price__content {
+        padding-right: 32px;
+        padding-left: 32px;
+    }
+
+    .price__table-header {
+        padding: 0 16px 16px 24px;
+    }
+    .price__footer {
+        padding-left: 32px;
+    }
 }

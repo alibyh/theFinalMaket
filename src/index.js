@@ -30,6 +30,7 @@ const enableBodyScroll = () => {
     delete document.body.dataset.scrollY;
 };
 
+
 // Register Swiper modules
 Swiper.use([Pagination, Navigation]);
 
@@ -38,24 +39,52 @@ document.addEventListener("DOMContentLoaded", () => {
     const additionalInfo = document.getElementById('additional-info');
     const additionalInfoLabel = document.getElementById('additional-info-label');
     const lable1120 = document.getElementById('lable1120');
-    const for76128 = document.getElementById('for76128');
+    const lable1120Display = window.getComputedStyle(lable1120).display;
     const lable768 = document.getElementById('lable768');
     if (additionalInfo) {
         additionalInfo.addEventListener('click', () => {
-            if (additionalInfoLabel.textContent === " Читать далее") {
+            if (additionalInfoLabel.textContent === "Читать далее") {
                 lable1120.style.display = 'inline';
                 lable768.style.display = 'inline';
-                for76128.style.display = 'block';
-                additionalInfoLabel.textContent = "Читать меньше";
+                additionalInfoLabel.textContent = "Скрыть";
+                console.log(1111);
             }
             else {
                 lable1120.style.display = 'none';
                 lable768.style.display = 'none';
-                for76128.style.display = 'none';
-                additionalInfoLabel.textContent = " Читать далее";
+                additionalInfoLabel.textContent = "Читать далее";
+                console.log(2222);
+                console.log('Closed additional info');
             }
         });
     };
+
+    // Add media query listener for screen width less than 1120px
+    const mediaQuery1120 = window.matchMedia('(max-width: 1119px)');
+    if (!mediaQuery1120.matches) {
+        additionalInfoLabel.textContent = "Скрыть";
+    }
+
+    const handleAdditionalInfoLabel = () => {
+        const lable1120 = document.getElementById('lable1120');
+        const lable1120Display = window.getComputedStyle(lable1120).display;
+        console.log('display allways: ', lable1120Display);
+        if (additionalInfoLabel) {
+            if (lable1120 && lable1120Display === 'none') {
+                additionalInfoLabel.textContent = "Читать далее";
+                console.log('display: ', lable1120.style.display);
+                console.log('display: ', lable1120Display);
+                console.log(3333);
+            } else {
+                additionalInfoLabel.textContent = "Скрыть";
+                console.log('display: ', lable1120Display);
+                console.log(4444);
+            }
+        }
+    };
+
+    // Listen for changes
+    mediaQuery1120.addEventListener('change', handleAdditionalInfoLabel);
 
     function initializeSwipers() {
         // Initialize any swiper with class 'mySwiper'
@@ -75,31 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Initialize services slider with specific settings for price slides
-        const servicesSliders = document.querySelectorAll('.services-slider');
-        if (servicesSliders.length > 0) {
-            servicesSliders.forEach(element => {
-                new Swiper(element, {
-                    direction: 'horizontal',
-                    slidesPerView: 'auto',
-                    spaceBetween: 16,  // Changed from default to 16px
-                    pagination: {
-                        el: '.services-slider__pagination',
-                        clickable: true,
-                    },
-                    slideToClickedSlide: true,
-                    watchSlidesProgress: true,
-                    on: {
-                        init: function () {
-                            // Force exact width for slides
-                            const slides = element.querySelectorAll('.swiper-slide');
-                            slides.forEach(slide => {
-                                slide.style.width = '260px';
-                            });
-                        }
-                    }
-                });
-            });
-        }
     }
 
     // Call the function to initialize all swipers
@@ -226,11 +230,14 @@ document.addEventListener("DOMContentLoaded", () => {
                             .then(feedback_html => {
                                 feedbackContainer2.innerHTML = feedback_html;
                                 const feedbckCacelbutton2 = document.getElementById('feedbckCacelbutton2');
+                                const feedbackHeaderLine2 = document.getElementById('feedbackHeaderLine2');
+                                feedbackHeaderLine2.style.display = 'flex';
                                 if (feedbckCacelbutton2) {
                                     feedbckCacelbutton2.addEventListener('click', () => {
                                         myFeedbackDialog2.close();
                                         myFeedbackDialog.style.boxShadow = 'none';
                                         feedbckCacelbutton2.style.display = 'none';
+                                        feedbackHeaderLine2.style.display = 'none';
                                     });
                                 }
                             })
@@ -251,17 +258,21 @@ document.addEventListener("DOMContentLoaded", () => {
                             })
                             .then(feedback_html => {
                                 feedbackContainer.innerHTML = feedback_html;
+
                                 const feedbckCacelbutton = document.getElementById('feedbckCacelbutton');
+                                const feedbackHeaderLine = document.getElementById('feedbackHeaderLine');
+                                feedbackHeaderLine.style.display = 'flex';
                                 if (feedbckCacelbutton) {
                                     feedbckCacelbutton.addEventListener('click', () => {
                                         myFeedbackDialog.close();
                                         myFeedbackDialog.style.boxShadow = 'none';
                                         feedbckCacelbutton.style.display = 'none';
+                                        feedbackHeaderLine.style.display = 'none';
                                     });
                                 }
                             })
                             .catch(error => {
-                                console.error("Error fetching feedback:", error);
+                                console.error('Error fetching feedback:', error);
                             });
                     });
                 }
@@ -463,38 +474,33 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error('Error loading uslogui content:', error);
         });
 
-    fetch('price.html')
-        .then(response => response.text())
-        .then(html => {
-            const priceContainer = document.getElementById('priceContainer');
-            if (priceContainer) {
-                priceContainer.innerHTML = html;
+fetch('price.html')
+    .then(response => response.text())
+    .then(html => {
+        const priceContainer = document.getElementById('priceContainer');
+        if (priceContainer) {
+            priceContainer.innerHTML = html;
 
-                // Initialize Swiper for services-slider after content is loaded
-                setTimeout(() => {
-                    try {
-                        const servicesSliders = priceContainer.querySelectorAll('.services-slider');
-                        servicesSliders.forEach(element => {
-                            if (!element.swiper) {
-                                new Swiper(element, {
-                                    slidesPerView: 'auto',
-                                    spaceBetween: 14,
-                                    pagination: {
-                                        el: element.querySelector('.swiper-pagination'),
-                                        clickable: true,
-                                    },
-                                });
-                            }
-                        });
-                    } catch (error) {
-                        console.error('Error initializing services-slider Swiper:', error);
-                    }
-                }, 100);
+            // Initialize Swiper for price slider after content is loaded
+            const priceSliderElement = priceContainer.querySelector('.price__slider');
+            if (priceSliderElement && !priceSliderElement.swiper) {
+                new Swiper(priceSliderElement, {
+                    modules: [Pagination, Navigation],
+                    slidesPerView: 'auto',
+                    spaceBetween: 16,
+                    pagination: {
+                        el: priceContainer.querySelector('.price__slider-pagination'),
+                        clickable: true,
+                    },
+                    slideToClickedSlide: true,
+                    watchSlidesProgress: true,
+                });
             }
-        })
-        .catch(error => {
-            console.error('Error loading price content:', error);
-        });
+        }
+    })
+    .catch(error => {
+        console.error('Error loading price content:', error);
+    });
 
     fetch('footer.html')
         .then(response => response.text())
