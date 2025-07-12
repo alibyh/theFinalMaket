@@ -211,7 +211,7 @@ body {
   line-height: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0px;
   width: 90%;
   position: relative;
   letter-spacing: 0.2px;
@@ -227,7 +227,7 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  gap: 20px;
+  gap: 16px;
   padding-left: var(--left-padding);
 }
 

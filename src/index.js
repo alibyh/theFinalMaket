@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const additionalInfo = document.getElementById('additional-info');
     const additionalInfoLabel = document.getElementById('additional-info-label');
     const lable1120 = document.getElementById('lable1120');
-    const lable1120Display = window.getComputedStyle(lable1120).display;
+    const infoblockitem = document.getElementById('info-block-item');
     const lable768 = document.getElementById('lable768');
     if (additionalInfo) {
         additionalInfo.addEventListener('click', () => {
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 lable768.style.display = 'inline';
                 additionalInfoLabel.textContent = "Скрыть";
                 console.log(1111);
+                infoblockitem.style.gap = '16px';
             }
             else {
                 lable1120.style.display = 'none';
@@ -55,6 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 additionalInfoLabel.textContent = "Читать далее";
                 console.log(2222);
                 console.log('Closed additional info');
+                infoblockitem.style.gap = '0';
+                
             }
         });
     };
