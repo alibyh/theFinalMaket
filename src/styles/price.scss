@@ -359,10 +359,6 @@ body {
         padding-left: 24px;
     }
 
-    .price {
-        gap: 24px;
-    }
-
     .price__slider-pagination.swiper-pagination {
         display: none !important;
     }
@@ -436,13 +432,15 @@ body {
     .price__table-row:first-child .price__table-cell:first-child {
         border-top-left-radius: 6px;
     }
+    .price__footer {
+        padding-left: 0 !important;
+    }
 }
 
 /* Price Footer - Common for both views */
 .price__footer {
     position: relative;
     bottom: 0;
-    padding-left: 16px;
     width: 80%;
     background-color: #F8F8F8;
     display: flex;
@@ -450,6 +448,7 @@ body {
     justify-content: space-between;
     align-items: start;
     gap: 16px;
+    padding-left: 16px;
 }
 
 
@@ -590,8 +589,9 @@ body {
     .price__title {
         padding-left: 32px;
     }
+
     .price {
-        gap: 32px;
+        gap: 31px;
     }
 
 
@@ -721,9 +721,6 @@ body {
         justify-content: center;
     }
 
-    .price__footer {
-        padding-left: 24px;
-    }
 }
 
 /* For larger screens, make the table even more spacious */
@@ -735,13 +732,11 @@ body {
     .price__content {
         padding-right: 32px;
         padding-left: 32px;
+        gap: 32px;
     }
 
     .price__table-header {
         padding: 0 16px 16px 24px;
     }
 
-    .price__footer {
-        padding-left: 32px;
-    }
 }
